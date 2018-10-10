@@ -280,12 +280,14 @@ private:
 	uint8_t  _dhcpGatewayIp[4] __attribute__((aligned(4)));
 	uint8_t  _dhcpDhcpServerIp[4] __attribute__((aligned(4)));
 	uint8_t  _dhcpDnsServerIp[4] __attribute__((aligned(4)));
+	uint8_t  _dhcpNtpServerIp[4] __attribute__((aligned(4)));
 #else
 	uint8_t  _dhcpLocalIp[4];
 	uint8_t  _dhcpSubnetMask[4];
 	uint8_t  _dhcpGatewayIp[4];
 	uint8_t  _dhcpDhcpServerIp[4];
 	uint8_t  _dhcpDnsServerIp[4];
+	uint8_t  _dhcpNtpServerIp[4];
 #endif
 	uint32_t _dhcpLeaseTime;
 	uint32_t _dhcpT1, _dhcpT2;
@@ -310,6 +312,7 @@ public:
 	IPAddress getGatewayIp();
 	IPAddress getDhcpServerIp();
 	IPAddress getDnsServerIp();
+	IPAddress getNTPServerIp();
 
 	int beginWithDHCP(uint8_t *, unsigned long timeout = 60000, unsigned long responseTimeout = 4000);
 	int checkLease();

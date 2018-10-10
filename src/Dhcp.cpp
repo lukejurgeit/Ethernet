@@ -325,6 +325,15 @@ uint8_t DhcpClass::parseDHCPResponse(unsigned long responseTimeout, uint32_t& tr
 				_renewInSec = _dhcpLeaseTime;
 				break;
 
+			case ntpServers :
+				opt_len = _dhcpUdpSocket.read();
+				_dhcpUdpSocket.read(_dhcpNtpServerIp, 4);
+				for (int i = 0; i < opt_len-4; i++)
+				{
+						_dhcpUdpSocket.read();
+				}
+				break;
+
 			default :
 				opt_len = _dhcpUdpSocket.read();
 				// Skip over the rest of this option
@@ -413,6 +422,11 @@ IPAddress DhcpClass::getGatewayIp()
 IPAddress DhcpClass::getDhcpServerIp()
 {
 	return IPAddress(_dhcpDhcpServerIp);
+}
+
+IPAddress DhcpClass::getNTPServerIp()
+{
+	return IPAddress(_dhcpNtpServerIp);
 }
 
 IPAddress DhcpClass::getDnsServerIp()

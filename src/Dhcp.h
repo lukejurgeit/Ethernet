@@ -94,9 +94,9 @@ enum
 	tcpKeepaliveInterval	=	38,
 	tcpKeepaliveGarbage	=	39,
 	nisDomainName		=	40,
-	nisServers		=	41,
+	nisServers		=	41,*/
 	ntpServers		=	42,
-	vendorSpecificInfo	=	43,
+	/*vendorSpecificInfo	=	43,
 	netBIOSnameServer	=	44,
 	netBIOSdgramDistServer	=	45,
 	netBIOSnodeType		=	46,
